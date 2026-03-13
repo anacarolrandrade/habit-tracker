@@ -1,0 +1,10 @@
+import { DayISO } from '../../types/common';
+
+export const toLocalDayISO = (date: Date): DayISO => {
+  const year = date.getFullYear();
+  const month = `${date.getMonth() + 1}`.padStart(2, '0');
+  const day = `${date.getDate()}`.padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
+export const todayDayISO = (): DayISO => toLocalDayISO(new Date());
