@@ -1,11 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { Alert, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text } from 'react-native';
 import { HabitMultiSelect } from '../components/habits/HabitMultiSelect';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { NumberSuggestions } from '../components/ui/NumberSuggestions';
 import { SectionHeader } from '../components/ui/SectionHeader';
 import { periodMaxDays, periodMinDays, periodSuggestions } from '../constants/periodSuggestions';
+import { theme } from '../theme';
 import { Habit } from '../types/habit';
 
 interface Props {
@@ -39,8 +40,9 @@ export const OnboardingScreen = ({ habits, onSave }: Props) => {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.title}>Habit Tracker</Text>
-      <Text style={styles.subtitle}>Configure seus hábitos e período de acompanhamento.</Text>
+      <Text style={styles.subtitle}>Primeira configuração</Text>
+      <Text style={styles.title}>Análise de Hábitos</Text>
+      <Text style={styles.description}>Defina hábitos acompanhados e período de rastreamento.</Text>
 
       <SectionHeader title="Hábitos" />
       <HabitMultiSelect habits={habits} selectedIds={selectedHabitIds} onToggle={toggleHabit} />
@@ -60,7 +62,8 @@ export const OnboardingScreen = ({ habits, onSave }: Props) => {
 };
 
 const styles = StyleSheet.create({
-  container: { padding: 16, paddingTop: 56, gap: 8 },
-  title: { fontSize: 28, fontWeight: '700' },
-  subtitle: { color: '#475569' },
+  container: { padding: 20, paddingTop: 40, backgroundColor: theme.colors.appBg, flexGrow: 1 },
+  subtitle: { color: theme.colors.textMuted, fontSize: 13 },
+  title: { fontSize: 28, fontWeight: '600', color: theme.colors.textPrimary },
+  description: { color: theme.colors.textSecondary, marginTop: 6 },
 });
