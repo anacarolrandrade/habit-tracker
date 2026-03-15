@@ -11,4 +11,4 @@ export const HabitMultiSelect = ({ habits, selectedIds, onToggle }: { habits: Ha
   </View>
 );
 
-const styles = StyleSheet.create({ wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 } });
+const styles = StyleSheet.create({ wrap: { gap: 8 } });
